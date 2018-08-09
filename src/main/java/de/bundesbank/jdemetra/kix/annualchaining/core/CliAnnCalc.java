@@ -34,10 +34,6 @@ public final class CliAnnCalc implements ICalc {
     private TsData weightedSumData;
     private TsData weightedSumWeights;
 
-    public CliAnnCalc(final TsData indexData, final TsData indexWeights, final int inputYear) {
-        this(indexData, indexWeights, inputYear, false);
-    }
-
     public CliAnnCalc(final TsData indexData, final TsData indexWeights, final int inputYear, final boolean inputDisplayFirstYear) {
         weightedSumData = unchain(indexData);
         weightedSumWeights = mid(indexWeights, true);
@@ -45,15 +41,15 @@ public final class CliAnnCalc implements ICalc {
         displayFirstYear = inputDisplayFirstYear;
         referenzYear = inputYear;
 
-        TsPeriod referenzYearPeriod = new TsPeriod(indexData.getFrequency(), referenzYear, 1);
+        TsPeriod referenzYearPeriod = new TsPeriod(indexData.getFrequency(), referenzYear, 0);
         factor = mid(indexData, false).get(referenzYearPeriod);
         factorWeight = calculateFactorWeight(indexData, indexWeights);
     }
 
     @Override
     public void plus(final TsData addData, final TsData addWeights) {
-        addFactor(addData, addWeights);
-        addWeightsum(addData, addWeights);
+        addToFactor(addData, addWeights);
+        addToWeightsum(addData, addWeights);
     }
 
     @Override
@@ -71,12 +67,12 @@ public final class CliAnnCalc implements ICalc {
 
     @Override
     public void minus(final TsData subtractData, final TsData subtractWeights) {
-        subtractFactor(subtractData, subtractWeights);
-        subtractWeightsum(subtractData, subtractWeights);
+        subtractFromFactor(subtractData, subtractWeights);
+        subtractFromWeightsum(subtractData, subtractWeights);
     }
 
-    private void addFactor(final TsData addData, final TsData addWeights) {
-        TsPeriod referenzYearPeriod = new TsPeriod(addData.getFrequency(), referenzYear, 1);
+    private void addToFactor(final TsData addData, final TsData addWeights) {
+        TsPeriod referenzYearPeriod = new TsPeriod(addData.getFrequency(), referenzYear, 0);
         double midIndexAtRefYear = mid(addData, false).get(referenzYearPeriod);
         double addFactorWeight = calculateFactorWeight(addData, addWeights);
 
@@ -89,7 +85,7 @@ public final class CliAnnCalc implements ICalc {
      * @param addData
      * @param addWeights
      */
-    private void addWeightsum(final TsData addData, final TsData addWeights) {
+    private void addToWeightsum(final TsData addData, final TsData addWeights) {
 
         TsData unchainedData = unchain(addData);
         TsData averagedWeights = mid(addWeights, true);
@@ -113,8 +109,8 @@ public final class CliAnnCalc implements ICalc {
         return sumDataRefYear * sumWeightPreYear / sumDataPreYear;
     }
 
-    private void subtractFactor(final TsData addData, final TsData addWeights) {
-        TsPeriod referenzYearPeriod = new TsPeriod(addData.getFrequency(), referenzYear, 1);
+    private void subtractFromFactor(final TsData addData, final TsData addWeights) {
+        TsPeriod referenzYearPeriod = new TsPeriod(addData.getFrequency(), referenzYear, 0);
         double midIndexAtRefYear = mid(addData, false).get(referenzYearPeriod);
         double subtractFactorWeight = calculateFactorWeight(addData, addWeights);
 
@@ -127,7 +123,7 @@ public final class CliAnnCalc implements ICalc {
      * @param subtractData
      * @param subtractWeights
      */
-    private void subtractWeightsum(final TsData subtractData, final TsData subtractWeights) {
+    private void subtractFromWeightsum(final TsData subtractData, final TsData subtractWeights) {
         TsData unchainedData = unchain(subtractData);
         TsData averagedWeights = mid(subtractWeights, true);
         weightedSumData = weightedSumData.times(weightedSumWeights)
