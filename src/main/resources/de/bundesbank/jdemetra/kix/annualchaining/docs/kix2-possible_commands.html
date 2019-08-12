@@ -21,7 +21,7 @@
     </head>
     <body lang="en-US">
         <h1>Possible Commands for KIX 2.0</h1>
-        <p>Version: 1.0 (2018-08-21)</p>
+        <p>Version: 1.0 (2019-08-12)</p>
 
         <h2><a id="KIX">KIX</a></h2>
         Aggregation of chained time series with annual overlap method<br/>
@@ -62,36 +62,36 @@
             <dd>The same as <b>Example 2</b> but the programm will name the resulting time series <b>Example3</b>.</dd>
         </dl>
 
-        <h2><a id="UNC">UNC</a></h2>
+        <h2><a id="UNC.ANN">UNC.ANN</a></h2>
         Unchain a chained time series (i1) with the annual overlap method.<br/>
-        Formula: [Name=]UNC,i1<br/>
+        Formula: [Name=]UNC.ANN,i1<br/>
         Examples:
         <dl>
-            <dt><b>1. </b><i>UNC,i1</i></dt>
+            <dt><b>1. </b><i>UNC.ANN,i1</i></dt>
             <dd>The programm will unchain the index series <b>i1</b>.</dd>
 
-            <dt><b>2. </b><i>UNC,w1</i></dt>
+            <dt><b>2. </b><i>UNC.ANN,w1</i></dt>
             <dd>The programm will unchain the weight series <b>w1</b>.</dd>
 
-            <dt><b>3. </b><i>Example3=UNC,i1</i></dt>
+            <dt><b>3. </b><i>Example3=UNC.ANN,i1</i></dt>
             <dd>The same as <b>Example 1</b> but the programm will name the resulting time series <b>Example3</b>.</dd>
         </dl>
 
-        <h2><a id="CHA">CHA</a></h2>
+        <h2><a id="CHA.ANN">CHA.ANN</a></h2>
         Chain a time series (i1) with the annual overlap method.<br/>
-        Formula: [Name=]CHA,i1[,refyr]<br/>
+        Formula: [Name=]CHA.ANN,i1[,refyr]<br/>
         Examples:
         <dl>
-            <dt><b>1. </b><i>CHA,i1</i></dt>
+            <dt><b>1. </b><i>CHA.ANN,i1</i></dt>
             <dd>The programm will chain the index series <b>i1</b>. The resulting time series is normalized on the first year.</dd>
 
-            <dt><b>2. </b><i>CHA,w1</i></dt>
+            <dt><b>2. </b><i>CHA.ANN,w1</i></dt>
             <dd>The programm will chain the weight series <b>w1</b>. The resulting time series is normalized on the first year.</dd>
 
-            <dt><b>3. </b><i>CHA,i1,2005</i></dt>
+            <dt><b>3. </b><i>CHA.ANN,i1,2005</i></dt>
             <dd>The programm will chain the index series <b>i1</b>. The resulting time series is normalized on <b>2005</b>.</dd>
 
-            <dt><b>4. </b><i>Example4=CHA,i1</i></dt>
+            <dt><b>4. </b><i>Example4=CHA.ANN,i1</i></dt>
             <dd>The same as <b>Example 1</b> but the programm will name the resulting time series <b>Example4</b>.</dd>
         </dl>
     </body>
