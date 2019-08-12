@@ -63,8 +63,8 @@
         </dependency>
         <dependency>
             <groupId>de.bundesbank</groupId>
-            <artifactId>kix</artifactId>
-            <version>2.2.1</version>
+            <artifactId>kix-ui</artifactId>
+            <version>1.0</version>
         </dependency>
         <dependency>
             <groupId>org.netbeans.api</groupId>
