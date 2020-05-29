@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>de.bundesbank.jdemetra.kix</groupId>
     <artifactId>KIX2.0</artifactId>
-    <version>1.0</version>
+    <version>1.0.1</version>
     <packaging>nbm</packaging>
     <build>
         <plugins>
@@ -127,7 +127,7 @@
         <dependency>
             <groupId>org.netbeans.api</groupId>
             <artifactId>org-netbeans-modules-javahelp</artifactId>
-            <version>RELEASE82</version>
+            <version>RELEASE80</version>
         </dependency>
     </dependencies>
     <properties>
