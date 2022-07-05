@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>de.bundesbank.jdemetra.kix</groupId>
     <artifactId>KIX2.0</artifactId>
-    <version>1.0.1</version>
+    <version>1.1</version>
     <packaging>nbm</packaging>
     <build>
         <plugins>
@@ -78,7 +78,7 @@
         <dependency>
             <groupId>de.bundesbank</groupId>
             <artifactId>kix-ui</artifactId>
-            <version>1.0</version>
+            <version>1.1.1</version>
         </dependency>
         <dependency>
             <groupId>org.netbeans.api</groupId>
@@ -109,7 +109,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
         <dependency>
